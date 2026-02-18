@@ -1,9 +1,0 @@
-style = "compact"
-inline_height = 25
-update_check = false
-sync_frequency = "5m"
-show_preview = true
-enter_accept = false
-
-session_path = "$HOME/.atuin_session"
-key_path = "$HOME/.atuin_key"
