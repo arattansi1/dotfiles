@@ -52,7 +52,7 @@ if [ -n "$ZSH_PATH" ] && [ "$SHELL" != "$ZSH_PATH" ]; then
         echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
     fi
     echo "Changing default shell to zsh..."
-    chsh -s "$ZSH_PATH"
+    sudo chsh -s "$ZSH_PATH"
 else
     echo "zsh is already the default shell"
 fi
