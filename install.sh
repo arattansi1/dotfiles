@@ -5,6 +5,7 @@ set -e
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 SYMLINK_FILES=(.aliases .zshrc_dotfiles)
+CLAUDE_CONFIG_FILES=(settings.json)
 
 MARKER="# --- dotfiles managed ---"
 
@@ -14,6 +15,18 @@ create_symlinks() {
         dest="$HOME/$name"
         if [ -e "$src" ]; then
             echo "Linking $name → $dest"
+            ln -sf "$src" "$dest"
+        fi
+    done
+}
+
+setup_claude_config() {
+    mkdir -p "$HOME/.claude"
+    for name in "${CLAUDE_CONFIG_FILES[@]}"; do
+        src="$SCRIPT_DIR/.claude/$name"
+        dest="$HOME/.claude/$name"
+        if [ -e "$src" ]; then
+            echo "Linking .claude/$name → $dest"
             ln -sf "$src" "$dest"
         fi
     done
@@ -39,6 +52,7 @@ append_source_line() {
 }
 
 create_symlinks
+setup_claude_config
 
 append_source_line "$HOME/.zshrc" "$HOME/.zshrc_dotfiles"
 
