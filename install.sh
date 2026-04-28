@@ -60,13 +60,13 @@ mkdir -p "$HOME/bin"
 
 # Set zsh as default shell if it isn't already
 ZSH_PATH=$(command -v zsh)
-if [ -n "$ZSH_PATH" ] && [ "$SHELL" != "$ZSH_PATH" ]; then
+if [ -n "$ZSH_PATH" ] && [ "$(basename "$SHELL")" != "zsh" ]; then
     if ! grep -qF "$ZSH_PATH" /etc/shells 2>/dev/null; then
         echo "Adding $ZSH_PATH to /etc/shells..."
         echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
     fi
     echo "Changing default shell to zsh..."
-    sudo chsh -s "$ZSH_PATH"
+    sudo chsh -s "$ZSH_PATH" "$USER"
 else
     echo "zsh is already the default shell"
 fi
