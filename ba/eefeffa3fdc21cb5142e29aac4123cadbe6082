@@ -1,0 +1,19 @@
+.zshrc_dotfiles
+  s_b5f1cfee6985ba::t_0cfbfcbc708d96 17-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "baeefeffa3fdc21cb5142e29aac4123cadbe6082",
+  "prompts": {},
+  "sessions": {
+    "s_b5f1cfee6985ba": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "be191cd3-b891-4dc4-b240-35c097d89030",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Abbas Rattansi <rattansi.abbas@gmail.com>"
+    }
+  }
+}
