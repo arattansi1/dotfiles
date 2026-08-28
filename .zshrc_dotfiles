@@ -14,6 +14,9 @@ sync() {
   git checkout main && git pull && git checkout "$branch" && git rebase main
 }
 
+# Ona injects environment secrets here; zsh non-login shells skip /etc/profile.d.
+[ -f /etc/profile.d/ona-secrets.sh ] && . /etc/profile.d/ona-secrets.sh
+
 export PATH="$PATH:$HOME/bin"
 
 source "$HOME/.aliases"
